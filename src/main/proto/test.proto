@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "com.myapp.grpc_demo.proto";
+
+service GreetingService {
+  rpc greeting (HelloRequest) returns (HelloResponse) {};
+}
+
+message HelloResponse {
+  string greeting = 1;
+}
+
+enum Mood {
+  HAPPY = 0;
+  SLEEPY = 1;
+  ANGRY = 2;
+}
+
+message HelloRequest {
+  string firstname = 1;
+  string lastname = 2;
+  int64  age = 3;
+  Mood mood = 4;
+  repeated string hobbies = 5;
+  map<string, string> bagOfTricks = 6;
+}
